@@ -3398,8 +3398,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         mAppOps.noteOpNoThrow(
             mAppOps.OP_READ_CELL_INFO,
             Binder.getCallingUid(),
-            getDefaultPhone().getContext().getPackageName(),
-            getDefaultPhone().getContext().getAttributionTag(),
+            callingPackage,
+            callingFeatureId,
             "getAllCellInfo reporting cell info");
 
         final int targetSdk = TelephonyPermissions.getTargetSdk(mApp, callingPackage);
@@ -3483,8 +3483,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         mAppOps.noteOpNoThrow(
             mAppOps.OP_READ_CELL_INFO,
             Binder.getCallingUid(),
-            getDefaultPhone().getContext().getPackageName(),
-            getDefaultPhone().getContext().getAttributionTag(),
+            callingPackage,
+            callingFeatureId,
             "requestCellInfoUpdate reporting cell info");
 
         final Phone phone = getPhoneFromSubId(subId);
